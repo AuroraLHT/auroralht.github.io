@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haotong Liang — Resume</title>
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 10pt;
+      color: #1a1a1a;
+      background: #f0f2f5;
+      line-height: 1.5;
+    }
+
+    /* ── Page shell ───────────────────────────────────────────────── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      background: #ffffff;
+      box-shadow: 0 4px 24px rgba(0,0,0,.12);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    /* ── Header ───────────────────────────────────────────────────── */
+    header {
+      background: #1b3a5c;
+      color: #ffffff;
+      padding: 28px 36px 24px;
+    }
+
+    header h1 {
+      font-size: 28pt;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    header .contact {
+      margin-top: 6px;
+      font-size: 9.5pt;
+      color: #a8c4e0;
+    }
+
+    header .contact a {
+      color: #a8c4e0;
+      text-decoration: none;
+    }
+
+    header .summary {
+      margin-top: 12px;
+      font-size: 9.5pt;
+      color: #dde8f2;
+      max-width: 74ch;
+      line-height: 1.6;
+    }
+
+    /* ── Body: sidebar + main ─────────────────────────────────────── */
+    .body {
+      display: grid;
+      grid-template-columns: 175px 1fr;
+    }
+
+    /* ── Sidebar ──────────────────────────────────────────────────── */
+    aside {
+      background: #f5f8fb;
+      border-right: 1px solid #dde5ee;
+      padding: 24px 18px;
+    }
+
+    aside .section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #1b3a5c;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #1b3a5c;
+    }
+
+    aside .section-block {
+      margin-bottom: 22px;
+    }
+
+    aside ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    aside ul li {
+      background: #dde8f5;
+      color: #1b3a5c;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 8.5pt;
+      font-weight: 500;
+    }
+
+    aside .lang-list {
+      font-size: 9pt;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* ── Main content ─────────────────────────────────────────────── */
+    main {
+      padding: 24px 28px 28px;
+    }
+
+    .section {
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #1b3a5c;
+      margin-bottom: 12px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #1b3a5c;
+    }
+
+    /* Experience entry */
+    .entry {
+      margin-bottom: 14px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .entry-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .entry-title .institution {
+      font-weight: 400;
+      color: #444;
+    }
+
+    .entry-role {
+      font-size: 9pt;
+      color: #555;
+      font-style: italic;
+      margin-top: 1px;
+    }
+
+    .entry-date {
+      font-size: 8.5pt;
+      color: #888;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .entry ul {
+      margin-top: 7px;
+      padding-left: 16px;
+    }
+
+    .entry ul li {
+      margin-bottom: 4px;
+      font-size: 9pt;
+      color: #2a2a2a;
+    }
+
+    /* Publication entry */
+    .pub {
+      margin-bottom: 10px;
+    }
+
+    .pub-title {
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .pub-meta {
+      font-size: 8.5pt;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    .pub-meta .authors { color: #444; }
+    .pub-meta .venue   { color: #1b3a5c; font-style: italic; }
+
+    /* Education entry */
+    .edu {
+      margin-bottom: 10px;
+    }
+
+    .edu-degree {
+      font-size: 10pt;
+      font-weight: 700;
+    }
+
+    .edu-school {
+      font-size: 9pt;
+      color: #555;
+    }
+
+    .edu-date {
+      font-size: 8.5pt;
+      color: #888;
+    }
+
+    .edu-field {
+      font-size: 9pt;
+      color: #333;
+      margin-top: 1px;
+    }
+
+    /* ── Print ────────────────────────────────────────────────────── */
+    @media print {
+      body { background: none; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+      }
+      @page { margin: 0; size: A4; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header>
+    <h1>Haotong Liang</h1>
+    <p class="contact">
+      <a href="mailto:hliang16@umd.edu">hliang16@umd.edu</a>
+      &nbsp;·&nbsp; University of Maryland, College Park
+      &nbsp;·&nbsp; <a href="https://auroralht.github.io/" target="_blank">auroralht.github.io</a>
+    </p>
+    <p class="summary">
+      Ph.D. candidate developing autonomous experimentation workflows for materials discovery
+      using deep learning and Bayesian inference. Passionate about laboratory automation and
+      self-driving labs with the goal of boosting scientific throughput by one to two orders
+      of magnitude. A fast learner who readily picks up new tools, techniques, and domains
+      on the fly, with strong problem-solving skills applied across the full stack — from
+      low-level hardware control to machine learning pipelines.
+    </p>
+  </header>
+
+  <div class="body">
+
+    <!-- ── SIDEBAR ──────────────────────────────────────── -->
+    <aside>
+
+      <div class="section-block">
+        <div class="section-title">Technical Skills</div>
+        <ul>
+          <li>Deep Learning</li>
+          <li>CNN</li>
+          <li>GAN</li>
+          <li>LLM</li>
+          <li>GNN</li>
+          <li>Bayesian Optimization</li>
+          <li>Gaussian Process</li>
+          <li>PyTorch</li>
+          <li>React</li>
+          <li>Message Queue</li>
+          <li>Computer Networking</li>
+        </ul>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Lab Techniques</div>
+        <ul>
+          <li>SEM</li>
+          <li>TEM</li>
+          <li>PLD</li>
+          <li>RHEED</li>
+          <li>XRD</li>
+          <li>AFM</li>
+        </ul>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Other Skills</div>
+        <ul>
+          <li>Linux OS</li>
+          <li>Shell</li>
+          <li>Web Scraping</li>
+          <li>SolidWorks</li>
+        </ul>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Programming</div>
+        <ul>
+          <li>Python</li>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>Java</li>
+          <li>C</li>
+          <li>MATLAB</li>
+          <li>SQL</li>
+          <li>LabVIEW</li>
+        </ul>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Languages</div>
+        <div class="lang-list">
+          English<br>
+          Mandarin<br>
+          Cantonese
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── MAIN ─────────────────────────────────────────── -->
+    <main>
+
+      <!-- Education -->
+      <div class="section">
+        <div class="section-title">Education</div>
+
+        <div class="edu">
+          <div class="entry-header">
+            <div>
+              <span class="edu-degree">Ph.D., Materials Science &amp; Engineering</span>
+              <div class="edu-school">University of Maryland, College Park</div>
+            </div>
+            <span class="entry-date">Jan 2021 – Present</span>
+          </div>
+        </div>
+
+        <div class="edu">
+          <div class="entry-header">
+            <div>
+              <span class="edu-degree">B.S., Materials Science &amp; Engineering</span>
+              <div class="edu-school">University of Maryland, College Park &nbsp;·&nbsp; Minor: Computer Science</div>
+            </div>
+            <span class="entry-date">Oct 2016 – Jan 2021</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Experience -->
+      <div class="section">
+        <div class="section-title">Research Experience</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title">Takeuchi Research Group <span class="institution">· University of Maryland</span></div>
+              <div class="entry-role">Research Assistant</div>
+            </div>
+            <span class="entry-date">Oct 2018 – Present</span>
+          </div>
+          <ul>
+            <li>Conducted machine-learning–driven research for materials discovery across phase-change materials, antiferromagnets, and high-T<sub>c</sub> superconductors.</li>
+            <li>Developed <strong>CRYSPNET</strong>, a neural network that predicts crystal structures from chemical compositions; the learned latent space serves as a robust materials descriptor.</li>
+            <li>Collaborated with NIST researchers to build a generative adversarial network (<strong>GAN</strong>) that significantly improved structure-classification accuracy for neutron diffraction data.</li>
+            <li>Built a <strong>U-Net</strong>–based model to segment key regions in <strong>RHEED</strong> images, enabling automated quantitative analysis and phase mapping — the foundation of ongoing autonomous experimentation workflows.</li>
+            <li>Developed a <strong>Bayesian optimization</strong> framework for direct energy deposition and demonstrated the workflow on MAR-M247.</li>
+            <li>Built an end-to-end image-analysis pipeline for autonomous <strong>pulsed-laser deposition</strong> experiments, including a user-friendly interface designed for seamless handoff to collaborators.</li>
+            <li>Developed an <strong>agentic RAG system</strong> to assist with scientific research questions — the system autonomously navigates peer-reviewed literature using tools from multiple providers, synthesizes findings across papers, and draws evidence-based conclusions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Publications -->
+      <div class="section">
+        <div class="section-title">Publications</div>
+
+        <div class="pub">
+          <div class="pub-title">Self-driving thin film laboratory: autonomous epitaxial atomic-layer synthesis via real-time computer vision analysis of electron diffraction</div>
+          <div class="pub-meta">
+            <span class="authors">H. Liang, Y. Sun, R. Paxson, C.-Y. Lee, A. T. Hall, Z. Warecki, J. Cumings, H. Koinuma, A. G. Kusne, M. Lippmaa, I. Takeuchi.</span>
+            <span class="venue"> arXiv:2602.20432 (2026).</span>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-title">Real-time experiment-theory closed-loop interaction for autonomous materials science</div>
+          <div class="pub-meta">
+            <span class="authors">H. Liang, C. Wang, D. Kirsch, R. Pant, A. McDannald, A. G. Kusne, J. Zhao, I. Takeuchi.</span>
+            <span class="venue"> Sci. Adv. 11, eadu7426 (2025).</span>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-title">Application of machine learning to RHEED images for automated structural phase mapping</div>
+          <div class="pub-meta">
+            <span class="authors">H. Liang, V. Stanev, A. G. Kusne, Y. Tsukahara, K. Ito, R. Takahashi, M. Lippmaa, I. Takeuchi.</span>
+            <span class="venue"> Phys. Rev. Materials 6, 063805 (2022).</span>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-title">Benchmarking active learning strategies for materials optimization and discovery</div>
+          <div class="pub-meta">
+            <span class="authors">A. Wang, H. Liang, A. McDannald, I. Takeuchi, A. G. Kusne.</span>
+            <span class="venue"> Oxford Open Materials Science 2(1) (2022).</span>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-title">A low-cost robot science kit for education with symbolic regression for hypothesis discovery</div>
+          <div class="pub-meta">
+            <span class="authors">L. Saar, H. Liang, A. Wang, A. McDannald, E. Rodriguez, I. Takeuchi, A. G. Kusne.</span>
+            <span class="venue"> MRS Bulletin 47, 881–885 (2022).</span>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-title">A semi-supervised deep-learning approach for automatic crystal structure classification</div>
+          <div class="pub-meta">
+            <span class="authors">S. Lolla, H. Liang, A. G. Kusne, I. Takeuchi, W. Ratcliff.</span>
+            <span class="venue"> J. Appl. Crystallogr. 55(4):882–889 (2022).</span>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-title">CRYSPNet: Crystal Structure Predictions via Neural Network</div>
+          <div class="pub-meta">
+            <span class="authors">H. Liang, V. Stanev, A. G. Kusne, I. Takeuchi.</span>
+            <span class="venue"> Phys. Rev. Mater. 4, 123802 (2020).</span>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div><!-- /.body -->
+
+</div><!-- /.page -->
+</body>
+</html>
