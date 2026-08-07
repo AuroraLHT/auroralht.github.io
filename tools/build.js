@@ -318,7 +318,7 @@ return `<!DOCTYPE html>
   <section class="hero">
     <img class="hero-img" src="assets/gallery/${hero.id}-1800.webp" alt="A pulsed-laser ablation plume crossing a deposition chamber" fetchpriority="high" decoding="async" />
     <div class="hero-copy">
-      <p class="eyebrow">Ph.D. Candidate · Materials Science &amp; Engineering · University of Maryland</p>
+      <p class="eyebrow">Ph.D., Materials Science &amp; Engineering · University of Maryland · August 2026</p>
       <h1>I build laboratories<br />that run themselves.</h1>
       <p class="hero-lede">
         Deep learning and Bayesian inference, wired directly into deposition chambers,

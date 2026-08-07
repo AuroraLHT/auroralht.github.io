@@ -173,11 +173,18 @@ a { color: inherit; }
     linear-gradient(to right, rgba(11, 11, 12, 0.88) 0%, rgba(11, 11, 12, 0.42) 26%, rgba(11, 11, 12, 0) 50%);
 }
 
+/* The copy is bottom-anchored, so on a short viewport it grows upward and
+   slides under the fixed bar. The top padding is its clearance: invisible on
+   tall screens, and on short ones it pushes the hero past 100svh instead of
+   letting the nav land on the first line. */
 .hero-copy {
   position: relative;
   z-index: 2;
-  padding: 0 var(--pad) clamp(5rem, 12vh, 9rem);
-  max-width: 46rem;
+  padding: clamp(5.5rem, 14vh, 8rem) var(--pad) clamp(5rem, 12vh, 9rem);
+  max-width: 52rem;   /* enough for the eyebrow to hold one line on desktop */
+  /* The line ends over the plume, which is the brightest part of the frame —
+     a soft shadow holds contrast there without dimming the photograph. */
+  text-shadow: 0 1px 18px rgba(9, 9, 11, 0.6);
 }
 
 .eyebrow {
@@ -188,11 +195,13 @@ a { color: inherit; }
   color: var(--accent);
 }
 
+/* Sized against viewport height as well as width, so a short laptop window
+   or a phone in landscape does not get a headline taller than the screen. */
 .hero h1 {
   margin: 0 0 1.4rem;
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(2.6rem, 7.2vw, 5.4rem);
+  font-size: clamp(2.3rem, min(7.2vw, 9.5vh), 5.4rem);
   line-height: 1.03;
   letter-spacing: -0.022em;
 }
