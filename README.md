@@ -1,7 +1,62 @@
 # auroralht.github.io
 
-A photo-first personal site: a full-screen opener, six themed chapters of lab
-photography with captions, and a link to the résumé.
+A photo-first personal site: a full-screen opener, seven themed chapters of lab
+photography and figures with captions, and a link to the résumé.
+
+Live at <https://auroralht.github.io/>.
+
+## How it deploys — GitHub never runs Node
+
+This is the thing to remember. **The build runs on your machine, not on
+GitHub.** `tools/build.js` reads `originals/`, writes `assets/gallery/`, and
+regenerates `index.html`. All of that output is committed, and GitHub Pages
+simply serves the files sitting on `main`. Pages never installs Node, never
+runs `npm install`, and never sees `sharp`.
+
+```
+  edit tools/build.js  →  npm run build  →  preview  →  git push  →  live
+  ───────── your machine (Node + sharp) ──────────       ── GitHub, no build ──
+```
+
+The everyday loop:
+
+```bash
+cd tools && npm run build          # regenerates assets/ and index.html
+cd .. && python3 -m http.server 8000    # preview at http://127.0.0.1:8000
+git add -A && git commit -m "..." && git push origin main
+```
+
+Push to `main`, not a branch — Pages publishes from `main` at the repo root
+(`build_type: legacy`, i.e. serve-the-branch). A push to any other branch
+changes nothing on the live site. The site updates within a minute or so;
+check the build with:
+
+```bash
+gh api repos/AuroraLHT/auroralht.github.io/pages/builds/latest \
+  --jq '{status, error: .error.message, commit}'
+```
+
+`.nojekyll` is what stops Pages from running Jekyll over the repo, so files are
+served exactly as committed rather than being transformed or skipped.
+
+### Why not build on GitHub with Actions?
+
+You could, but it would be worse: it needs `originals/` committed (undoing the
+~130 MB saving), adds a build that can fail after you have pushed, and buys
+nothing — you have to run the build locally anyway to see your changes before
+pushing.
+
+### On a fresh clone
+
+```bash
+cd tools && npm install            # once, installs sharp
+```
+
+You also need `originals/` back in place before you can rebuild — it is
+git-ignored, so a fresh clone does not have it. The build fails loudly with
+`No such photo in originals/: …` rather than quietly dropping photos. Serving
+and pushing the site work fine without it, since the generated assets are
+committed.
 
 ## Layout
 
@@ -9,10 +64,12 @@ photography with captions, and a link to the résumé.
 | --- | --- |
 | `index.html` | **Generated** — do not edit by hand (see below) |
 | `style.css` | All page styling |
-| `script.js` | Scroll reveal, lightbox, keyboard and swipe navigation |
+| `script.js` | Scroll reveal, masonry packing, lightbox, keyboard and swipe navigation |
+| `favicon.svg` | Tab icon |
+| `.nojekyll` | Tells Pages to skip Jekyll and serve files verbatim |
 | `Resume/ResumeHaotongLiang2026.html` | The résumé, self-contained (fonts embedded) |
-| `assets/gallery/` | Generated web-sized WebP, two per photo (900 px grid, 1800 px lightbox) |
-| `assets/media/` | Compressed video and its poster frame |
+| `assets/gallery/` | Generated WebP, two per image (900 px grid, 1800 px lightbox) |
+| `assets/media/` | Video and poster frames — hand-converted, not generated |
 | `originals/` | Full-resolution originals — **git-ignored**, keep your own backup |
 | `tools/build.js` | Generates `assets/gallery/` and `index.html` |
 
@@ -21,25 +78,34 @@ photography with captions, and a link to the résumé.
 1. Drop the file into `originals/`. JPEG, PNG and TIFF are all handled.
 2. In `tools/build.js`, add a `CAP` entry (title + one-line note) and list the
    filename in whichever chapter it belongs to.
-3. Rebuild:
-
-   ```bash
-   cd tools
-   npm install     # first time only
-   npm run build
-   ```
+3. Rebuild and push, per the loop above.
 
 `index.html` is regenerated from the `CAP` and `CHAPTERS` tables in
-`tools/build.js`, so edit those rather than the HTML. Photos already present in
+`tools/build.js`, so edit those rather than the HTML. Images already present in
 `assets/gallery/` are skipped, so rebuilds are fast; delete a pair of `.webp`
-files to force it to re-encode that photo.
+files to force a re-encode.
 
-Copy is written in `tools/build.js` too — chapter titles and lead paragraphs in
+Copy lives in `tools/build.js` too — chapter titles and lead paragraphs in
 `CHAPTERS`, and everything else (hero, facts strip, résumé band, footer) in the
 `render()` template near the bottom.
 
-Plots and screenshots look wrong against the dark page unless they are given a
-light card — list those filenames in `FIGURE_STYLE`.
+### Where an image goes in a chapter
+
+| Slot | Renders as | Use for |
+| --- | --- | --- |
+| `feature` | Full-bleed, cropped to fit | A photograph that opens the chapter |
+| `opener` | Full width, uncropped, above the grid | A diagram that frames the chapter |
+| `grid` | Masonry columns | Ordinary photographs |
+| `closer` | Full width, uncropped, below the grid | Dense plots, animations, key results |
+
+`opener` and `closer` each take one item or an array, and accept either a
+filename or a video config. Never put a diagram in `feature` — that slot crops
+to fill, which mangles anything with text in it.
+
+Plots and screenshots need `FIGURE_STYLE`: list the filename there and it gets
+a white card plus an automatic trim of its uniform export margin, so the figure
+fills its tile instead of floating in whitespace. Photographs are never
+trimmed.
 
 ### Video and animation
 
@@ -55,22 +121,14 @@ ffmpeg -i originals/your.gif -vf "scale=900:-2" -frames:v 1 \
   assets/media/your-poster.jpg
 ```
 
-Then reference it from a chapter as either `video` (a tile inside the grid) or
-`closer` (full width under the grid, for anything with small type that has to
-stay readable). Set `autoplay: true` for short looping animations and
-`figure: true` for a light card.
+Then reference it from a chapter's `video` (a tile inside the grid) or
+`closer`/`opener` (full width). Set `autoplay: true` for short looping
+animations and `figure: true` for a light card. `script.js` strips autoplay for
+visitors who prefer reduced motion.
 
 ## Originals are not committed
 
-`originals/` is about 130 MB and is git-ignored; only the ~13 MB of
-generated assets ship. If you would rather version the originals too, remove
-that line from `.gitignore` — but a GitHub Pages repo gets slow to clone once
-it carries a few hundred megabytes of camera JPEGs.
-
-## Local preview
-
-```bash
-python3 -m http.server 8000
-```
-
-then open <http://127.0.0.1:8000>.
+`originals/` is about 130 MB and git-ignored; only the ~15 MB of generated
+assets ship. If you would rather version the originals too, remove that line
+from `.gitignore` — but a Pages repo gets slow to clone once it carries a few
+hundred megabytes of camera JPEGs.
