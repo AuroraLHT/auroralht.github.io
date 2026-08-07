@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0b0b0c"/>
+  <!-- ablation plume: a bright point on the substrate, widening upward -->
+  <defs>
+    <linearGradient id="p" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#fff7ee" stop-opacity="1"/>
+      <stop offset="0.55" stop-color="#ff7a35" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#7a5cff" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 46 L44 14 Q32 8 20 14 Z" fill="url(#p)"/>
+  <rect x="16" y="46" width="32" height="4" rx="2" fill="#f2f0ed"/>
+</svg>

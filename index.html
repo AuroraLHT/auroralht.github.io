@@ -3,278 +3,695 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haotong Liang</title>
+  <title>Haotong Liang — Autonomous Experimentation</title>
+  <meta name="description" content="Haotong Liang builds self-driving laboratories for materials discovery: pulsed-laser deposition, real-time computer vision, and Bayesian optimization. A photographic tour of the work." />
+  <meta property="og:title" content="Haotong Liang — Autonomous Experimentation" />
+  <meta property="og:description" content="A photographic tour of building self-driving laboratories for materials discovery." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/gallery/pld-deposition-1800.webp" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <span class="nav-logo">HL</span>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+<a class="skip" href="#thin-film">Skip to the work</a>
+
+<header class="topbar">
+  <a class="brand" href="#top">Haotong&nbsp;Liang</a>
+  <nav class="topnav">
+    <a href="#thin-film">Work</a>
+    <a href="mailto:hliang16@umd.edu">Email</a>
+    <a href="https://github.com/auroralht" target="_blank" rel="noopener">GitHub</a>
+    <a class="cta" href="Resume/ResumeHaotongLiang2026.html" target="_blank" rel="noopener">Résumé</a>
   </nav>
+</header>
 
-  <!-- HERO -->
-  <section id="about" class="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <p class="hero-tag">Ph.D. Candidate · University of Maryland</p>
-        <h1>Haotong Liang</h1>
-        <p class="hero-bio">
-          I develop autonomous experimentation workflows for materials discovery
-          using deep learning and Bayesian inference. My work focuses on
-          laboratory automation and self-driving labs, aiming to boost scientific
-          throughput by one to two orders of magnitude.
-        </p>
-        <div class="hero-links">
-          <a href="mailto:hliang16@umd.edu" class="btn-primary">hliang16@umd.edu</a>
-          <a href="https://github.com/auroralht" class="btn-outline" target="_blank" rel="noopener">GitHub</a>
-          <a href="Resume/ResumeHaotongLiang2026.pdf" class="btn-outline" target="_blank" rel="noopener">Resume</a>
-        </div>
+<main id="top">
+
+  <section class="hero">
+    <img class="hero-img" src="assets/gallery/pld-deposition-1800.webp" alt="A pulsed-laser ablation plume crossing a deposition chamber" fetchpriority="high" decoding="async" />
+    <div class="hero-copy">
+      <p class="eyebrow">Ph.D. Candidate · Materials Science &amp; Engineering · University of Maryland</p>
+      <h1>I build laboratories<br />that run themselves.</h1>
+      <p class="hero-lede">
+        Deep learning and Bayesian inference, wired directly into deposition chambers,
+        diffractometers, and additive-manufacturing machines — so the experiment can decide
+        what to do next while it is still running. Here is what that looks like.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="Resume/ResumeHaotongLiang2026.html" target="_blank" rel="noopener">Read my résumé</a>
+        <a class="btn btn-ghost" href="mailto:hliang16@umd.edu">hliang16@umd.edu</a>
       </div>
-      <div class="hero-graphic" aria-hidden="true">
-        <div class="orbit-ring ring-1"></div>
-        <div class="orbit-ring ring-2"></div>
-        <div class="orbit-ring ring-3"></div>
-        <div class="center-node"></div>
-      </div>
+    </div>
+    <a class="scroll-cue" href="#thin-film" aria-label="Scroll to the work"><span></span></a>
+  </section>
+
+  <section class="facts">
+    <div class="fact"><b>7</b><span>publications, 4 as first author</span></div>
+    <div class="fact"><b>Science Advances</b><span>first author, 2025</span></div>
+    <div class="fact"><b>8&nbsp;years</b><span>in the Takeuchi group</span></div>
+    <div class="fact"><b>100×</b><span>the throughput goal</span></div>
+  </section>
+
+  <section class="chapter" id="thin-film">
+    <div class="chapter-head">
+      <span class="chapter-n">01</span>
+      <h2>The self-driving thin-film lab</h2>
+      <p>Pulsed-laser deposition with a computer-vision loop closed around it. The instrument decides what to grow next while the growth is still happening.</p>
+    </div>
+        <figure class="shot shot-feature" data-i="0" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="The self-driving thin-film lab — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAACQBACdASoUAA8APxFysFAsJqSisAgBgCIJQBZ0FW9Ac/+pQAjR7px+TwZo03AA50IK0SFiKzWdbRJ8DeATu9BaR3kwkh+4PG3Zkfiz9MzsJABifx/toGvR67Aj2y+Q+z3oDVvZkVPSQ4De8hzoNGSbRRgny4SK7Bso6t914W3s53ykNWmimraeHQAAAA==)">
+              <img src="assets/gallery/pld-machine-900.webp" width="4000" height="3000"
+                   alt="The self-driving thin-film lab. PLD chamber, RHEED optics, and the control stack that runs them without me in the room." loading="lazy" decoding="async"
+                   data-full="assets/gallery/pld-machine-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>The self-driving thin-film lab</b><span>PLD chamber, RHEED optics, and the control stack that runs them without me in the room.</span></figcaption>
+        </figure>
+    <div class="grid" data-count="12">
+        <figure class="shot " data-i="1" style="--ar:0.7500">
+          <button class="shot-btn" type="button" aria-label="Ablation plume — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoUABsAPxFwrlCsJiQisAgBgCIJQAAKVn7vH51EBAV4pFKAAP7sjpodLOjTWvUmUCzAd1O0SQjfsK4DHU6A5WZ2AZ67IVAtkD+Y81urwAA=)">
+              <img src="assets/gallery/pld-deposition-900.webp" width="3000" height="4000"
+                   alt="Ablation plume. A pulsed laser hits the target and a few atomic layers cross the chamber." loading="lazy" decoding="async"
+                   data-full="assets/gallery/pld-deposition-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Ablation plume</b><span>A pulsed laser hits the target and a few atomic layers cross the chamber.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="2" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="RHEED, streak by streak — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwAwCdASoUAA8APxFysFAsJqSisAgBgCIJaQAAW8vCNWsOwrOWAAD+0mXujKy1OJ96tp2mnQa3b9NjcjY1hrRSIRu5NmLCGHUQB3fO0kyQCGaQVzU3bR8UAAA=)">
+              <img src="assets/gallery/rheedofhighqualityetchandannealedsubstrate-900.webp" width="4000" height="3000"
+                   alt="RHEED, streak by streak. A well-etched, well-annealed substrate read live by the segmentation model." loading="lazy" decoding="async"
+                   data-full="assets/gallery/rheedofhighqualityetchandannealedsubstrate-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>RHEED, streak by streak</b><span>A well-etched, well-annealed substrate read live by the segmentation model.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="3" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Home-made PLD + RHEED front end — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAA8APxFysVCsJqSisAgBgCIJZwAOcAPAL6H7NMylQsAAy0lpCDpyv2K98jRVhNiHahIOTSc6xulUpxZxXLMpPyCu/3KJO8MAAA==)">
+              <img src="assets/gallery/my-homemake-frontend-for-pldandrheed-900.webp" width="4000" height="3000"
+                   alt="Home-made PLD + RHEED front end. Live diffraction video, model inference, and intensity tracking in one browser tab." loading="lazy" decoding="async"
+                   data-full="assets/gallery/my-homemake-frontend-for-pldandrheed-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Home-made PLD + RHEED front end</b><span>Live diffraction video, model inference, and intensity tracking in one browser tab.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="4" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="PLD system, other side — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJZQAAVI5sSY4dZegZQwAA/h51k83ILaLetHbZDWU1DMrpavtL+dBoLiXRYdcSH50BPT+aL6O5y/3675agzuQF18OldEeWHHeZptIwrLOgNLxNVK+gcSW2db9YdWzDoxWXQAAA)">
+              <img src="assets/gallery/pldmachine2-900.webp" width="4000" height="3000"
+                   alt="PLD system, other side. Vacuum, gas handling, and laser optics all have to agree before anything grows." loading="lazy" decoding="async"
+                   data-full="assets/gallery/pldmachine2-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>PLD system, other side</b><span>Vacuum, gas handling, and laser optics all have to agree before anything grows.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="5" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Heater block diagnostic — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAA8APxGCtFIsKaUisAgBgCIJYwAAXlu9WeywgRpfNAD+6/H9NyKY3UsPsEANBru8nO5az8DrD2Ewff8ioIO9ziCad/e+g/R2b8m3x4UeCYAA)">
+              <img src="assets/gallery/pldheaterblockthermalgradientdiagnostic-900.webp" width="4000" height="3000"
+                   alt="Heater block diagnostic. Chasing a few degrees of non-uniformity across the sample stage." loading="lazy" decoding="async"
+                   data-full="assets/gallery/pldheaterblockthermalgradientdiagnostic-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Heater block diagnostic</b><span>Chasing a few degrees of non-uniformity across the sample stage.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="6" style="--ar:0.7500">
+          <button class="shot-btn" type="button" aria-label="Aligning the pyrometer — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAABQBQCdASoUABsAPxF6tVOsJ6UiqAqpgCIJQBgbgkZkR/ea1rO5jvOTBluVa2uH/GpKeRwA+nsqnf28+pj5uxGwEwI6yVabK7yPsGRlmH2WK4vuCxdemm7YUAefdOYbzuVGkCLoS+XjpHW1jz1G7ZFNeAzDKnjxZI8k0wowDqBDgWqiD2Ad2Ms6lUKdJEadm1Yv3gwZkEbXxHtkhZVmSkYFXb3eBq0vDfNNRGR0GXzKevkVS2LqKWw8N5kDNnqgAAA=)">
+              <img src="assets/gallery/aligningpyrometer-900.webp" width="3000" height="4000"
+                   alt="Aligning the pyrometer. Through the viewport, onto a substrate already glowing." loading="lazy" decoding="async"
+                   data-full="assets/gallery/aligningpyrometer-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Aligning the pyrometer</b><span>Through the viewport, onto a substrate already glowing.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="7" style="--ar:0.7500">
+          <button class="shot-btn" type="button" aria-label="Troubleshooting the electron source — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAABwBQCdASoUABsAPxF2sFAsJ6SisAgBgCIJagCdMyGDKvKvzadFyeFUYsvHOWNlAGQfRKYAAP5TJYdNA6MGn1rWr4osJqWLxScuisi8K1jLpknsMwWkXy4+wzRZpow+WAF9/UebkXHmjZvSxxtFTYrqSSsn/6jnbVUgsR4/FCDCh4gRCdTz+xSspo2x5GicPKNNRJ1C1LzOqO9lwtJHD0aW8Jov3vj1RjAAAA==)">
+              <img src="assets/gallery/trouble-shooting-electron-source-900.webp" width="3000" height="4000"
+                   alt="Troubleshooting the electron source. The hairpin tungsten filament that supplies electrons to the RHEED gun by thermionic emission. Arcing across its metal contacts had burned it out early." loading="lazy" decoding="async"
+                   data-full="assets/gallery/trouble-shooting-electron-source-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Troubleshooting the electron source</b><span>The hairpin tungsten filament that supplies electrons to the RHEED gun by thermionic emission. Arcing across its metal contacts had burned it out early.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="8" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Wehnelt cap assembly — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAA8APxFwsFAsJiSisAgBgCIJZQAAWnn76BFQi+R1oAD+6VqrqT5mvsZklNDucxfe3rzzMno6+FW95s5n1pWvg0RYLTOMABnRqkNV1sK7TYuS+uWHdQcvAAA=)">
+              <img src="assets/gallery/wehnelt-cap-assembly-for-rheed-900.webp" width="4000" height="3000"
+                   alt="Wehnelt cap assembly. The small part that decides whether you get a usable electron beam." loading="lazy" decoding="async"
+                   data-full="assets/gallery/wehnelt-cap-assembly-for-rheed-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Wehnelt cap assembly</b><span>The small part that decides whether you get a usable electron beam.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="9" style="--ar:0.7500">
+          <button class="shot-btn" type="button" aria-label="A PLD target — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRuAAAABXRUJQVlA4INQAAADQBQCdASoUABsAPxFurVGsJaQisBgMAYAiCWwAnTMSRA7SUBWFsy2f9s9zMqol/7KdQ7jKe/KoAP7BykfSJby68zCGEeAnVXk7eSM/6/FId/AMCyNg0hpOoNH1JKHtwSJ2Usnn+clvBYgEv4TmnQcQlg5ll8OYgzOT6XYEhFUTjMufOP/45cMUa0wx2fZjLaLd+wvJJLfDaenMVS6dYFtfvbXlxElXeecp4kMNrH6wdi6kRuAQNvR7cwtRFH/v2DIYJohSNez3zRUzv5bHlLLylwdwAA==)">
+              <img src="assets/gallery/pld-target-900.webp" width="3000" height="4000"
+                   alt="A PLD target. Every film starts as a pressed and sintered puck like this one." loading="lazy" decoding="async"
+                   data-full="assets/gallery/pld-target-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>A PLD target</b><span>Every film starts as a pressed and sintered puck like this one.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="10" style="--ar:0.7500">
+          <button class="shot-btn" type="button" aria-label="Selective deposition design — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQBACdASoUABsAPxF+s1GsKKSisBgIAYAiCWUAxnwvrGn2mIXlpPe4+bVPMJFiAADND7qTRzpu0u2Gl4L6hjJal0RkLmFuM9Uk5pEdu8jxI3OkKt9R/CG+Bfqpytbp6VNSMyhYbmovYCB+xyYhHugHWatd3QPEwAA=)">
+              <img src="assets/gallery/selectivedeposotion-pld-highthroughput-deposition-design-900.webp" width="3000" height="4000"
+                   alt="Selective deposition design. Masked geometry that puts several growth conditions on a single substrate." loading="lazy" decoding="async"
+                   data-full="assets/gallery/selectivedeposotion-pld-highthroughput-deposition-design-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Selective deposition design</b><span>Masked geometry that puts several growth conditions on a single substrate.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="11" style="--ar:0.7500">
+          <button class="shot-btn" type="button" aria-label="Substrate annealing — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAABQBQCdASoUABsAPxF8tlOsJ6UiqAqpgCIJZQC2FDAU1W0NodLMznkdkNyxVgyeCqDOxwAA/kKTq0spqkcet5DAimSHaYgt4CYJ3oFMZbNVNixNMzt1TuAyKNiOCcnu0IW/vwmrVRdFEh2r4n6+0b3Xl1v06Yy872J5rEWQayJABiDbJLEWrcvTdilqhzr1oqCg5zivmxxc1Ar21/mH3tjx6eR/IJ7o6hp3bPTaKuALXxyvGQAAAA==)">
+              <img src="assets/gallery/hightemperaturefurnanceforsubstrateannealing-900.webp" width="3000" height="4000"
+                   alt="Substrate annealing. A high-temperature soak to pull an etched surface back into atomic terraces." loading="lazy" decoding="async"
+                   data-full="assets/gallery/hightemperaturefurnanceforsubstrateannealing-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Substrate annealing</b><span>A high-temperature soak to pull an etched surface back into atomic terraces.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="12" style="--ar:0.6473">
+          <button class="shot-btn" type="button" aria-label="Sputtering plasma — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABwBQCdASoUAB8APwFiq1ArJSQit/qoAWAgCWQArDLog0KvPWZ5o0RTH6ShOMgzGnMHO3tQAP7wvTTY7VlJrqfcMGXhL1IuQHeaHTCd3ENXiHFNGEk76GSuEdppzFeF9IsfVIXLRA2Z3Wgk3a2grb1PtMEbTwkoejYTwBF+cnTiJJyNWnesAAAA)">
+              <img src="assets/gallery/sputtering-900.webp" width="1569" height="2424"
+                   alt="Sputtering plasma. Argon glow discharge, mid-deposition." loading="lazy" decoding="async"
+                   data-full="assets/gallery/sputtering-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Sputtering plasma</b><span>Argon glow discharge, mid-deposition.</span></figcaption>
+        </figure>
     </div>
   </section>
 
-  <!-- RESEARCH -->
-  <section id="research">
-    <div class="section-inner">
-      <h2 class="section-title">Research Experience</h2>
-      <div class="timeline">
+  <section class="chapter" id="machine-learning">
+    <div class="chapter-head">
+      <span class="chapter-n">02</span>
+      <h2>Machine learning</h2>
+      <p>The models behind the loop: instance segmentation that reads diffraction patterns as they arrive, peak fitting that turns them into numbers, and Gaussian-process Bayesian optimization deciding what to measure next.</p>
+    </div>
+    <div class="chapter-wide">
+        <figure class="shot shot-wide shot-figure" data-i="13" style="--ar:1.4749">
+          <button class="shot-btn" type="button" aria-label="The control stack — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQAwCdASoUAA4APxFwsFAsJiSisAgBgCIJYwAAXKVJR6VPhp311WAA/tPpnXszMEOHkoYjmZ6GI52U1yqn1JMJG/4ck/smk+S3zVnstKKZ8cQdG4lDwOhYyy4RrKRxjH/OUk1K3Zwqpdsp7tgJ+bLegAA=)">
+              <img src="assets/gallery/pld-software-diagram-white-background-900.webp" width="9677" height="6561"
+                   alt="The control stack. Instrument control, the RHEED camera and the ML node all speak through one message queue, with a React front end and an API on top of it." loading="lazy" decoding="async"
+                   data-full="assets/gallery/pld-software-diagram-white-background-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>The control stack</b><span>Instrument control, the RHEED camera and the ML node all speak through one message queue, with a React front end and an API on top of it.</span></figcaption>
+        </figure>
+    </div>
 
-        <div class="timeline-item">
-          <div class="timeline-meta">
-            <span class="timeline-date">Oct 2018 – Present</span>
-            <span class="timeline-tag">Research Assistant</span>
-          </div>
-          <div class="timeline-body">
-            <h3>Ichiro Takeuchi Research Group</h3>
-            <p class="timeline-org">University of Maryland College Park</p>
-            <ul class="timeline-bullets">
-              <li>
-                Developed <strong>CRYSPNET</strong>, a neural network that generates physically meaningful
-                crystal structures from chemical compositions, with a latent space serving as a robust
-                materials descriptor.
-              </li>
-              <li>
-                Collaborated with NIST researchers to develop a generative adversarial network that
-                significantly improved structure-classification accuracy for neutron diffraction data.
-              </li>
-              <li>
-                Built a <strong>U-Net–based model</strong> to segment key regions in RHEED images,
-                enabling automated quantitative phase mapping and forming the basis for ongoing
-                autonomous experimentation.
-              </li>
-              <li>
-                Developed a <strong>Bayesian optimization framework</strong> for direct energy deposition
-                and demonstrated the workflow on MAR-M247.
-              </li>
-              <li>
-                Built an end-to-end image-analysis pipeline to support autonomous pulsed-laser
-                deposition experiments, including a user-friendly interface for seamless handoff to
-                colleagues.
-              </li>
-              <li>
-                Developed an <strong>agentic RAG system</strong> to assist with scientific research
-                questions — the system autonomously navigates peer-reviewed literature using tools
-                from multiple providers, synthesizes findings across papers, and draws
-                evidence-based conclusions.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
+    <div class="grid" data-count="2">
+        <figure class="shot shot-figure" data-i="14" style="--ar:1.0000">
+          <button class="shot-btn" type="button" aria-label="RHEED, segmented and classified — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRpgAAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSB0AAAABL/D+/4iIG2QaECaBLiaB/rG87oj+TwAx9Vk8CwBWUDggVAAAAJADAJ0BKhQAFAA/EXq1U6wnpSKoCqmAIglNaeosYTzQScQyEAAA/u1mZ/pGtKhQIgAIopjnJ0rK0V0v3Ex6Kz2DomcfFke2nw8DHWKu8McKfoAAAA==)">
+              <img src="assets/gallery/rheed-instance-segmentation-and-classification-900.webp" width="1109" height="1109"
+                   alt="RHEED, segmented and classified. Instance segmentation separates the direct beam, the streaks and the spots, each with its own confidence; a second head calls the growth mode." loading="lazy" decoding="async"
+                   data-full="assets/gallery/rheed-instance-segmentation-and-classification-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>RHEED, segmented and classified</b><span>Instance segmentation separates the direct beam, the streaks and the spots, each with its own confidence; a second head calls the growth mode.</span></figcaption>
+        </figure>
+        <figure class="shot shot-figure" data-i="15" style="--ar:1.3420">
+          <button class="shot-btn" type="button" aria-label="Peak detection and fitting — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRk4BAABXRUJQVlA4WAoAAAAQAAAAEwAADgAAQUxQSKYAAAANgFtt2/Lkfr437jZHNkiqtCkZhR2gpKJjADZgAw6lS2tl3OWNywgRMQEFXwpAi/Qgwv7O9WXHYJl7rDfvu7azwpRhN9lKKMN+cTC64PD38wwnxJOpn6cRrNAqevuA0iMfi7crVunZjLCs1qbLWdxWkiMfx2K+8ouGGQYgAKFVfBB1Tg5OOMsZI1NbntatYKfx3x05sJKHlfasuLuJLcIKVBxO5RIAVlA4IIIAAAAwBACdASoUAA8APxFysFAsJqSisAgBgCIJZwAD45Iave65wipTDHvJT4AA/spmYh3K7SuzBk/7ixnSawvx3i84liN8/v/TSdTzpw5oMXPK+tGnzmmrAz2D8fw9Wfm/U2IWhsVhAlVQK7QT0qU5cpUH6CX95UbQbe1zx3JcomZFAAAA)">
+              <img src="assets/gallery/xray-diffraction-peak-detection-and-numerical-fitting-900.webp" width="1189" height="886"
+                   alt="Peak detection and fitting. Smooth, detect, then fit — separating overlapping peaks from the background is what turns a raw pattern into numbers a model can use." loading="lazy" decoding="async"
+                   data-full="assets/gallery/xray-diffraction-peak-detection-and-numerical-fitting-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Peak detection and fitting</b><span>Smooth, detect, then fit — separating overlapping peaks from the background is what turns a raw pattern into numbers a model can use.</span></figcaption>
+        </figure>
+    </div>
+    <div class="chapter-wide">
+        <figure class="shot shot-video shot-figure" style="--ar:1.3827">
+          <span class="shot-frame">
+            <video src="assets/media/gpbo-animation.mp4" poster="assets/media/gpbo-animation-poster.jpg" autoplay preload="metadata" controls playsinline loop muted></video>
+          </span>
+          <figcaption><b>The optimizer, thinking</b><span>Gaussian-process posterior and UCB acquisition over fifteen iterations — the loop that picks which experiment to run next.</span></figcaption>
+        </figure>
+    </div>
+    <div class="chapter-wide">
+        <figure class="shot shot-wide shot-figure" data-i="16" style="--ar:1.5329">
+          <button class="shot-btn" type="button" aria-label="A phase diagram, built autonomously — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABQAwCdASoUAA0APxFysFAsJqSisAgBgCIJaVefADdB6RwBoAD+70JUaIf5IGOlRcYdUGw8wrnyXERDDY2llX+yA8AAAA==)">
+              <img src="assets/gallery/autonomous-constructured-phase-diagram-using-gpbo-with-calphad-prior-900.webp" width="791" height="516"
+                   alt="A phase diagram, built autonomously. Bayesian optimization with a CALPHAD prior chose every measurement. The thin-film Bi–Sn eutectic lands near 133 °C, below the bulk 141 °C." loading="lazy" decoding="async"
+                   data-full="assets/gallery/autonomous-constructured-phase-diagram-using-gpbo-with-calphad-prior-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>A phase diagram, built autonomously</b><span>Bayesian optimization with a CALPHAD prior chose every measurement. The thin-film Bi–Sn eutectic lands near 133 °C, below the bulk 141 °C.</span></figcaption>
+        </figure>
     </div>
   </section>
 
-  <!-- PUBLICATIONS -->
-  <section id="publications" class="alt-bg">
-    <div class="section-inner">
-      <h2 class="section-title">Publications</h2>
-      <div class="pub-list">
-
-        <div class="pub-item featured">
-          <span class="pub-year">2026</span>
-          <div class="pub-content">
-            <h3>Self-driving thin film laboratory: autonomous epitaxial atomic-layer synthesis via real-time computer vision analysis of electron diffraction</h3>
-            <p class="pub-authors">H. Liang, Y. Sun, R. Paxson, C.-Y. Lee, A. T. Hall, Z. Warecki, J. Cumings, H. Koinuma, A. G. Kusne, M. Lippmaa, I. Takeuchi.</p>
-            <p class="pub-venue"><em>arXiv</em>:2602.20432 (2026)</p>
-          </div>
-        </div>
-
-        <div class="pub-item featured">
-          <span class="pub-year">2025</span>
-          <div class="pub-content">
-            <h3>Real-time experiment-theory closed-loop interaction for autonomous materials science</h3>
-            <p class="pub-authors">H. Liang, C. Wang, D. Kirsch, R. Pant, A. Mcdannald, A. Gilad Kusne, J. Zhao, I. Takeuchi.</p>
-            <p class="pub-venue"><em>Science Advances</em> 11, eadu7426 (2025). DOI: 10.1126/sciadv.adu7426</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-year">2022</span>
-          <div class="pub-content">
-            <h3>Application of machine learning to RHEED images for automated structural phase mapping</h3>
-            <p class="pub-authors">H. Liang, V. Stanev, A. G. Kusne, Y. Tsukahara, K. Ito, R. Takahashi, M. Lippmaa, I. Takeuchi.</p>
-            <p class="pub-venue"><em>Physical Review Materials</em> 6, 063805 (2022)</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-year">2022</span>
-          <div class="pub-content">
-            <h3>Benchmarking active learning strategies for materials optimization and discovery</h3>
-            <p class="pub-authors">A. Wang, H. Liang, A. McDannald, I. Takeuchi, A. Gilad Kusne.</p>
-            <p class="pub-venue"><em>Oxford Open Materials Science</em> 2, Issue 1 (2022)</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-year">2022</span>
-          <div class="pub-content">
-            <h3>A low-cost robot science kit for education with symbolic regression for hypothesis discovery and validation</h3>
-            <p class="pub-authors">L. Saar, H. Liang, A. Wang, A. McDannald, E. Rodriguez, I. Takeuchi, A. Gilad Kusne.</p>
-            <p class="pub-venue"><em>MRS Bulletin</em> 47, 881–885 (2022)</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-year">2022</span>
-          <div class="pub-content">
-            <h3>A semi-supervised deep-learning approach for automatic crystal structure classification</h3>
-            <p class="pub-authors">S. Lolla, H. Liang, A. Gilad Kusne, I. Takeuchi, W. Ratcliff.</p>
-            <p class="pub-venue"><em>Journal of Applied Crystallography</em> 55(Pt 4):882–889 (2022). doi: 10.1107/S1600576722006069</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-year">2020</span>
-          <div class="pub-content">
-            <h3>CRYSPNet: Crystal Structure Predictions via Neural Network</h3>
-            <p class="pub-authors">H. Liang, V. Stanev, A. G. Kusne, I. Takeuchi.</p>
-            <p class="pub-venue"><em>Physical Review Materials</em> 4, 123802 (2020)</p>
-          </div>
-        </div>
-
-      </div>
+  <section class="chapter" id="structure">
+    <div class="chapter-head">
+      <span class="chapter-n">03</span>
+      <h2>Reading structure</h2>
+      <p>Diffraction, microscopy, and microprobe work — the measurements that tell you whether the thing you made is the thing you meant to make.</p>
+    </div>
+        <figure class="shot shot-feature" data-i="17" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="My first pole figure — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJZgAAW+pgXuXw02ugaIAA/lCrtbyJ6bbR6mKPfV0z5kaGN2YyuG2XVy9w84XSeSw17Zj76TYs0OXKt/hVjkxAAAA=)">
+              <img src="assets/gallery/myfirst-pole-figure-900.webp" width="4000" height="3000"
+                   alt="My first pole figure. Texture in a thin film, resolved for the first time." loading="lazy" decoding="async"
+                   data-full="assets/gallery/myfirst-pole-figure-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>My first pole figure</b><span>Texture in a thin film, resolved for the first time.</span></figcaption>
+        </figure>
+    <div class="grid" data-count="9">
+        <figure class="shot " data-i="18" style="--ar:1.7778">
+          <button class="shot-btn" type="button" aria-label="Composition-spread library — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACQAwCdASoUAAsAPxFysFAsJqSisAgBgCIJYwDImBCdU+SrTV8AAPuapXHfYkvncBwNc2osCVoluNG9wVFdF3cjGh3oLQzy1Gbth3sSyCUj7sj7PIkBWu48Fppl+3IhjSSUThbgdCoKMS3TSTssWUaD3HLn/SAA)">
+              <img src="assets/gallery/compositionlibrary-900.webp" width="4032" height="2268"
+                   alt="Composition-spread library. One wafer, hundreds of compositions, measured point by point." loading="lazy" decoding="async"
+                   data-full="assets/gallery/compositionlibrary-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Composition-spread library</b><span>One wafer, hundreds of compositions, measured point by point.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="19" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Full-circle diffractometer — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQAwCdASoUAA8APxFwsFAsJiSisAgBgCIJZwAAT7Ezgxtb1dAAAN2b33W1KARoL+DQUELP47XaHn+Wwk+jx25k4lzFgsu798G67bKFgrAlwJsKPpjS4KeG2BsZ+bAAAAA=)">
+              <img src="assets/gallery/fullcircle-rigaku-xray-machine-900.webp" width="4000" height="3000"
+                   alt="Full-circle diffractometer. Four-circle goniometry for texture and pole-figure work." loading="lazy" decoding="async"
+                   data-full="assets/gallery/fullcircle-rigaku-xray-machine-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Full-circle diffractometer</b><span>Four-circle goniometry for texture and pole-figure work.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="20" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="AFM defect mapping — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAABwBACdASoUAA8APxFysFAsJqSisAgBgCIJbACdMoMYAEJb6w3cvQ4IFRY6AAD32RLBZHkq4Zt9pzex+OIljRjkN7PTcB5dYvRzzRj8lNePw30n/ifIFmKJaTbIgH07HJBpZyOxcm83Bc4ZBwtvxr6r2y/CXttaFMRy/caEgbQDWS8+xlR0apxz0SnAAA==)">
+              <img src="assets/gallery/afmfordefectidentification-900.webp" width="4000" height="3000"
+                   alt="AFM defect mapping. Surface topography of an epitaxial film, hunting for what went wrong." loading="lazy" decoding="async"
+                   data-full="assets/gallery/afmfordefectidentification-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>AFM defect mapping</b><span>Surface topography of an epitaxial film, hunting for what went wrong.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="21" style="--ar:1.7778">
+          <button class="shot-btn" type="button" aria-label="Library on the goniometer — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAAsAPxFysFAsJqSisAgBgCIJYwDImCDTbQGJ0lNwsAAA/U87zmn/KBm0ZZHlSNVqbV8aKD6Uw/3hKHOMLYyknIBBSTmVLRYIbpzDRTh8JiKlU4kE+fhF7bAsIT+Q6X2UAxp0wAA=)">
+              <img src="assets/gallery/truncatedcompositionallibrary-900.webp" width="4032" height="2268"
+                   alt="Library on the goniometer. Aligned and ready for a long automated scan." loading="lazy" decoding="async"
+                   data-full="assets/gallery/truncatedcompositionallibrary-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Library on the goniometer</b><span>Aligned and ready for a long automated scan.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="22" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="In-situ phase mapping, Sn–Bi — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAwCdASoUAA8APxFysFAsJqSisAgBgCIJZQAASb/kc/Bah/6hyADc19afKOcZ9B1fP3ElwWjUVfn2ZXYWH+C8SnSmVpUClkwcHYYAH9oU7pGLz8VkutU8jby1uvAuggpayry6rn4/3LOtf4ZtjsxtWRCjkVzKrV4+p4l4AAA=)">
+              <img src="assets/gallery/in-situ-xray-phase-mapping-on-a-snbi-composition-gradient-library-900.webp" width="4032" height="3024"
+                   alt="In-situ phase mapping, Sn–Bi. Composition and temperature swept together, diffraction running throughout." loading="lazy" decoding="async"
+                   data-full="assets/gallery/in-situ-xray-phase-mapping-on-a-snbi-composition-gradient-library-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>In-situ phase mapping, Sn–Bi</b><span>Composition and temperature swept together, diffraction running throughout.</span></figcaption>
+        </figure>
+        <figure class="shot shot-figure" data-i="23" style="--ar:1.7901">
+          <button class="shot-btn" type="button" aria-label="High-speed powder diffraction — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAwCdASoUAAsAPxF0sVCsJqSisAgBgCIJZgCdAGlXFe4b3aOLgAAA/vjSfTWfaD7AlL7ShAwiXAAl/VXODK/8JpTluaNsWpJ9u45ZDaNJilgPRBwaRTks0zar0oUJHMajyMZerfreJ+JFG7gAAA==)">
+              <img src="assets/gallery/2dxrayimages-powderdiffraction-highspeed-xray-900.webp" width="1160" height="648"
+                   alt="High-speed powder diffraction. Six detector frames stitched into one strip; the boxed region is what gets integrated into a pattern." loading="lazy" decoding="async"
+                   data-full="assets/gallery/2dxrayimages-powderdiffraction-highspeed-xray-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>High-speed powder diffraction</b><span>Six detector frames stitched into one strip; the boxed region is what gets integrated into a pattern.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="24" style="--ar:0.5625">
+          <button class="shot-btn" type="button" aria-label="WDS microprobe — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRugAAABXRUJQVlA4INwAAABwBgCdASoUACQAPxGCuFcsKCUjpWgBgCIJZQDMIbYDVYpj5KQnZVV83q8d4T0sgHcqcBZC9amXQFZqxgAA2PsxdNtREq5Lza//+SWUHSNeIKHj8o72EWl+qG6AcZxQ9D52hvX9hN/G2Lo9y0nK7fWB2kY0F/HLlm43Tlh3D81q0yK7euOYs48DvaMCpVOYUgjQFb0oev+Sksmxtuh+diRKoZwIzCLSmrfTRidFNkv3ZCM55umHj17CxGwI88zn0S+6g5iSl9E+TshkT3YlFbgsHc9MFxIQsiMeAAAA)">
+              <img src="assets/gallery/wds-900.webp" width="2268" height="4032"
+                   alt="WDS microprobe. Wavelength-dispersive spectroscopy when EDS is not quantitative enough." loading="lazy" decoding="async"
+                   data-full="assets/gallery/wds-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>WDS microprobe</b><span>Wavelength-dispersive spectroscopy when EDS is not quantitative enough.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="25" style="--ar:1.7778">
+          <button class="shot-btn" type="button" aria-label="Calibrating deposition rate — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoUAAsAPxFysFAsJqSisAgBgCIJQBdgAxue1n8yMdHNFEgAzIJeRW6jlqtCbdmHzsLLJOwBw459lkidMN9BBgv/JBwLwRIUI/klIg/bs0ErKUqTjwHZW5aKvufq8xGAAAA=)">
+              <img src="assets/gallery/depositionrateestimationwithprofilometer-900.webp" width="4032" height="2268"
+                   alt="Calibrating deposition rate. Stylus profilometry across a masked step turns laser pulses into ångströms." loading="lazy" decoding="async"
+                   data-full="assets/gallery/depositionrateestimationwithprofilometer-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Calibrating deposition rate</b><span>Stylus profilometry across a masked step turns laser pulses into ångströms.</span></figcaption>
+        </figure>
+        <figure class="shot shot-video" style="--ar:1.7778">
+          <span class="shot-frame">
+            <video src="assets/media/cathodoluminescence.mp4" poster="assets/media/cathodoluminescence-poster.jpg" preload="none" controls playsinline loop muted></video>
+          </span>
+          <figcaption><b>Cathodoluminescence</b><span>An Al₂O₃ substrate lighting up under the electron beam.</span></figcaption>
+        </figure>
     </div>
   </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-inner">
-      <h2 class="section-title">Education</h2>
-      <div class="edu-grid">
-
-        <div class="edu-card">
-          <div class="edu-degree">Ph.D.</div>
-          <div class="edu-field">Materials Science &amp; Engineering</div>
-          <div class="edu-school">University of Maryland College Park</div>
-          <div class="edu-date">Jan 2021 – Present</div>
-        </div>
-
-        <div class="edu-card">
-          <div class="edu-degree">B.S.</div>
-          <div class="edu-field">Materials Science &amp; Engineering<br/><span class="edu-minor">Minor: Computer Science</span></div>
-          <div class="edu-school">University of Maryland College Park</div>
-          <div class="edu-date">Oct 2016 – Jan 2021</div>
-        </div>
-
-      </div>
+  <section class="chapter" id="beamtime">
+    <div class="chapter-head">
+      <span class="chapter-n">04</span>
+      <h2>Beamtime</h2>
+      <p>Hardware I built, shipped to SSRL at SLAC, and ran around the clock. Synchrotron time is allocated in shifts, and nothing gets a second take.</p>
+    </div>
+        <figure class="shot shot-feature" data-i="26" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Flash-annealing rig at beamline 17-2 — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQBACdASoUAA8APxFysFAsJqSisAgBgCIJZQDImB9q8MiFWFvck2D5AfdgAPxmYrDoCVmrP6aTPDivbmhPzU69PGJtSdx2fQDHxhpVr0IgJvib4dMwAASbZektISC39tIUYNwMRWuS4cENbG+mDSAA)">
+              <img src="assets/gallery/flashannealingsystematbeamline17-2-slac-900.webp" width="4000" height="3000"
+                   alt="Flash-annealing rig at beamline 17-2. Built for real-time diffraction during rapid thermal processing at SSRL." loading="lazy" decoding="async"
+                   data-full="assets/gallery/flashannealingsystematbeamline17-2-slac-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Flash-annealing rig at beamline 17-2</b><span>Built for real-time diffraction during rapid thermal processing at SSRL.</span></figcaption>
+        </figure>
+    <div class="grid" data-count="4">
+        <figure class="shot " data-i="27" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="The rig, close up — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwAAWm8c3FJIDm3R/YAA/rrggZqqUOgZPAW76cch/n905EDv0iZISIDz6GdeET/jhvmLHzFB5zqF8obhgJNFVz+pk7pxLDHfXiNLbPXNUJP0dechZSaB5ny7gsujT4DYgwnpu+gueAAA)">
+              <img src="assets/gallery/flashannealingsystem-closeup-slac-900.webp" width="4000" height="3000"
+                   alt="The rig, close up. Lamp heating, gas handling, and the X-ray path inside a 30 cm envelope." loading="lazy" decoding="async"
+                   data-full="assets/gallery/flashannealingsystem-closeup-slac-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>The rig, close up</b><span>Lamp heating, gas handling, and the X-ray path inside a 30 cm envelope.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="28" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="2D GIXRD, live — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoUAA8APxFysFAsJqSisAgBgCIJbACw7B6TPMDW0UjiIsOqAAD+6pcp/FPpKvaYdexAujfxo4LokX4saJLwcUrSyGac0dFBOHSCIklB9lfwX2sl7e6ti+f0s+Xpt2pXz4wFfUjwGt7WvYM3s397QAAA)">
+              <img src="assets/gallery/2d-gixrd-at-slac-900.webp" width="4000" height="3000"
+                   alt="2D GIXRD, live. Diffraction arcs arriving on the detector while the sample is still heating." loading="lazy" decoding="async"
+                   data-full="assets/gallery/2d-gixrd-at-slac-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>2D GIXRD, live</b><span>Diffraction arcs arriving on the detector while the sample is still heating.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="29" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Beam damage — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwC2yBuEqbmYhwkhYBJwAPOKpDB+Pn9a95KL0MTlletTW4HTT9QrLXxAryIe0X608DXkZobTUakBmRuPd5CDfuoaE7YRcarqT3fOkOy5Ks7g5mH8wQ8uPx9stT5TF0r6EgAA)">
+              <img src="assets/gallery/xray-beam-damaged-sample-slac-900.webp" width="4000" height="3000"
+                   alt="Beam damage. What a synchrotron leaves behind when the exposure runs too long." loading="lazy" decoding="async"
+                   data-full="assets/gallery/xray-beam-damaged-sample-slac-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Beam damage</b><span>What a synchrotron leaves behind when the exposure runs too long.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="30" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Beamtime — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJQBOgO4AY23Sw4X9k3LIA++xUpHzKYmLUdkDbjZ/Zdn7xNLs63AFfWWGq2qgRzASnUuRicgcaVYudTxaNpfXR8xlDtV8m64FEahC4Ln/GZK+CgDZncImodbheSW3wsW8OATfTfTydeo34AKJwjJXAAAA=)">
+              <img src="assets/gallery/groupmate-at-slac-900.webp" width="4000" height="3000"
+                   alt="Beamtime. The hutch at SSRL — beamtime is measured in shifts, not hours." loading="lazy" decoding="async"
+                   data-full="assets/gallery/groupmate-at-slac-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Beamtime</b><span>The hutch at SSRL — beamtime is measured in shifts, not hours.</span></figcaption>
+        </figure>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="alt-bg">
-    <div class="section-inner">
-      <h2 class="section-title">Skills</h2>
-      <div class="skills-grid">
-
-        <div class="skill-group">
-          <h3>Machine Learning</h3>
-          <div class="tags">
-            <span>Deep Learning</span><span>CNN</span><span>GAN</span>
-            <span>LLM</span><span>GNN</span><span>Bayesian Optimization</span>
-            <span>Active Learning</span><span>Gaussian Process</span><span>MCMC</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Programming</h3>
-          <div class="tags">
-            <span>Python</span><span>JavaScript</span><span>TypeScript</span>
-            <span>Java</span><span>C</span><span>MATLAB</span><span>SQL</span><span>LabVIEW</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Frameworks &amp; Tools</h3>
-          <div class="tags">
-            <span>PyTorch</span><span>React</span><span>Message Queue</span>
-            <span>VASP</span><span>LAMMPS</span>
-            <span>SolidWorks</span><span>Linux OS</span><span>Shell</span>
-            <span>Web Scraping</span><span>Computer Networking</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Experimental Techniques</h3>
-          <div class="tags">
-            <span>SEM</span><span>TEM</span><span>PLD</span>
-            <span>RHEED</span><span>XRD</span><span>AFM</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Languages</h3>
-          <div class="tags">
-            <span>English</span><span>Mandarin</span><span>Cantonese</span>
-          </div>
-        </div>
-
-      </div>
+  <section class="chapter" id="additive">
+    <div class="chapter-head">
+      <span class="chapter-n">05</span>
+      <h2>Metal, melted</h2>
+      <p>Bayesian optimization applied to laser powder direct energy deposition, with in-situ X-ray imaging built to see the melt pool as it forms.</p>
+    </div>
+        <figure class="shot shot-feature" data-i="31" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="As-built LPDED wall — cracked — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAwCdASoUAA8APxF2slEsJySisAgBgCIJZwDLLCHf/xcqM62qL8AAAP7C79vWl9qUR1NY4BusCxtEvnNBLsl3t6EvbBe/wCoGu3owODGgAA==)">
+              <img src="assets/gallery/as-built-lpded-ni-based-alloy-sample-cracked-900.webp" width="4032" height="3024"
+                   alt="As-built LPDED wall — cracked. Laser powder direct energy deposition of a Ni superalloy; the process window shows itself in the cracks." loading="lazy" decoding="async"
+                   data-full="assets/gallery/as-built-lpded-ni-based-alloy-sample-cracked-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>As-built LPDED wall — cracked</b><span>Laser powder direct energy deposition of a Ni superalloy; the process window shows itself in the cracks.</span></figcaption>
+        </figure>
+    <div class="grid" data-count="11">
+        <figure class="shot " data-i="32" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="As-built wall — wavy top — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACQAwCdASoUAA8APxFysVAsJqSisAgBgCIJZwAAW7jTR0YQnHdoAP7DBkumwtE+MNK/ZXyS+b+OUZfsJQkLTxGQFKe93Ut62OJ706J6ZUC099scw4AAAA==)">
+              <img src="assets/gallery/as-built-lpded-ni-based-alloy-sample-wavy-top-900.webp" width="4032" height="3024"
+                   alt="As-built wall — wavy top. Layer-height drift accumulating over a build, and an objective worth optimizing against." loading="lazy" decoding="async"
+                   data-full="assets/gallery/as-built-lpded-ni-based-alloy-sample-wavy-top-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>As-built wall — wavy top</b><span>Layer-height drift accumulating over a build, and an objective worth optimizing against.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="33" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="The crack, up close — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABQAwCdASoUAA8APxF4slEsJ6SisAgBgCIJaQAANOffmiYlqAD52HxqkhaITcaJGtbMNfnAxz+qgoAAAAA=)">
+              <img src="assets/gallery/sem-crosssection-etched-ni-based-alloy-with-crack-caused-by-thermal-stress-900.webp" width="1280" height="960"
+                   alt="The crack, up close. SEM cross-section of the etched alloy. Thermal stress opened this one straight through the columnar grains." loading="lazy" decoding="async"
+                   data-full="assets/gallery/sem-crosssection-etched-ni-based-alloy-with-crack-caused-by-thermal-stress-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>The crack, up close</b><span>SEM cross-section of the etched alloy. Thermal stress opened this one straight through the columnar grains.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="34" style="--ar:0.5625">
+          <button class="shot-btn" type="button" aria-label="In-situ X-ray imaging, installed — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAADwBQCdASoUACQAPxF8r1EsKCQiqrgN+YAiCWUAw+ggV/oUQaYrvkXiGFsCiWg5o/v6JfCB2lJzgAD2RXiHng/XDj4tcrsHI4NnB+v5p8Lp2oe4cExo8spo+6K5dc5+vM776tDPC78t3xT1fD6lUtsLp/VrH80vR7FjrI1c96NEnvrhh1W4iv6pFUcWQcO89zd9eQQ1c5JpAS8yl0iP1Kk3jXuQZmaVprz/4S/wyGJk7sWAr+l98cyJnsRIiP7dwFh1tjPQCAA=)">
+              <img src="assets/gallery/in-situ-xray-imaging-system-in-lpded-machine-900.webp" width="2268" height="4032"
+                   alt="In-situ X-ray imaging, installed. Watching the melt pool while the laser is still running." loading="lazy" decoding="async"
+                   data-full="assets/gallery/in-situ-xray-imaging-system-in-lpded-machine-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>In-situ X-ray imaging, installed</b><span>Watching the melt pool while the laser is still running.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="35" style="--ar:0.5625">
+          <button class="shot-btn" type="button" aria-label="Getting control of a commercial machine — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAQBgCdASoUACQAPxF4sVMsJyQiqrgMAYAiCWcAzcAePriA1erGjC5+s37YrNffRA3zb/klQW8fMqwA/VNj2WpZBRmQu9Psl6djEjCuXVPBiWM9tGFZ5RWuNwJzCiKnaHFIzAfLx4+WWKMvH/NQF6scPp5B8g7kLHHPFx3R4IXIhhqJb1F6YO+IvA0PiJyBciU0WR7f/UZLLRnI7wd9x8CMIyNbaXIeK4Rr0mpV1FDzuvjJhe0X5v27Q9s8lHhWBUlXPQknAAA=)">
+              <img src="assets/gallery/physical-hacking-the-control-panel-of-a-lpded-machine-900.webp" width="2268" height="4032"
+                   alt="Getting control of a commercial machine. A TruLaser Cell 3000 that never shipped with an API, wired for programmatic control." loading="lazy" decoding="async"
+                   data-full="assets/gallery/physical-hacking-the-control-panel-of-a-lpded-machine-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Getting control of a commercial machine</b><span>A TruLaser Cell 3000 that never shipped with an API, wired for programmatic control.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="36" style="--ar:1.7778">
+          <button class="shot-btn" type="button" aria-label="The same system, on the bench — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoUAAsAPxFysFAsJqSisAgBgCIJZQC+SCPgTSw6OH+RwNHi1gAA+g8r1bJNcx8+aUGfVh1mkSsIYfk0bOLIXXx5THXJIdA/kbdy9ABySUMzfDI7fIP97L5IX03vH3PuAAA=)">
+              <img src="assets/gallery/in-situ-xray-imaging-system-on-a-linear-stage-900.webp" width="4032" height="2268"
+                   alt="The same system, on the bench. Source, detector, and motion control breadboarded before anything went into the machine." loading="lazy" decoding="async"
+                   data-full="assets/gallery/in-situ-xray-imaging-system-on-a-linear-stage-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>The same system, on the bench</b><span>Source, detector, and motion control breadboarded before anything went into the machine.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="37" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Laser spot calibration coupon — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAwCdASoUAA8APxFysFAsJqSisAgBgCIJZQAAQx1crvVcQC3CQAD+y9pveJIMB+tLj5J1LlwQiGDCazKeH2AtspEeg+wzT9Lo3lHkpL02L1KQHgAAAA==)">
+              <img src="assets/gallery/laserspotcalibrationsample-900.webp" width="4000" height="3000"
+                   alt="Laser spot calibration coupon. Burn patterns that tell you where the beam actually is." loading="lazy" decoding="async"
+                   data-full="assets/gallery/laserspotcalibrationsample-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Laser spot calibration coupon</b><span>Burn patterns that tell you where the beam actually is.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="38" style="--ar:0.5625">
+          <button class="shot-btn" type="button" aria-label="Polished Ni superalloy — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAADQBQCdASoUACQAPxF0rVEsJqQiqq35gCIJZQDIIzBQeAh3imqNyK5jMEDdbFgZDgWNK5xmv5eAAP7cz/VY2hMpIcLHeFuxtzvX/SlVIp0NW7o5F9UYsw8RCJUcl2lhgfHdco6D4e49r3JVD5iK7WdUPintJVC4rwd6uinW0nDoryzZ2eaSP55+4Y17qClCDam4Bwu0rhkycjCA6NvBnwwX57+vwXADc+p7b/5Lto+TWOqJRZsTLULQzL3nX1+7kVAAAA==)">
+              <img src="assets/gallery/polished-ni-based-alloy-900.webp" width="2268" height="4032"
+                   alt="Polished Ni superalloy. Mounted and mirror-finished for microstructure work." loading="lazy" decoding="async"
+                   data-full="assets/gallery/polished-ni-based-alloy-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Polished Ni superalloy</b><span>Mounted and mirror-finished for microstructure work.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="39" style="--ar:1.7778">
+          <button class="shot-btn" type="button" aria-label="Two coupons on the stage — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQBACdASoUAAsAPxFysFAsJqSisAgBgCIJZQDImCLBzdJZdlZXDeVsAAD+3HkV5BTm0orp1so/bLApJOTd6LN9C3xlRuf1ro9pj9AhSP4cjTvUn87W40ESdrVUOvTfWJ4XiwPq7Eg8AAAA)">
+              <img src="assets/gallery/polished-ni-based-alloy-2-900.webp" width="4032" height="2268"
+                   alt="Two coupons on the stage. Same alloy, different build parameters." loading="lazy" decoding="async"
+                   data-full="assets/gallery/polished-ni-based-alloy-2-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Two coupons on the stage</b><span>Same alloy, different build parameters.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="40" style="--ar:0.7500">
+          <button class="shot-btn" type="button" aria-label="The sample archive — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABwBACdASoUABsAPxFyr1AsJqQisAgBgCIJYwC7ABYRuF3KCtJN7iy2n5U8AADsVWEa67iBZhgYzDiV5S/uk/3/XpYgcXplNg0KHLN/niqhAIH+ctoLn0Hffgg6B62oAOV/DfRnC2S/T/ZQpSkjBv9lmWZf3A7ht6dB1+7Le7cb8t78He51pzv92bnlsL50Pm+CfMEUAAA=)">
+              <img src="assets/gallery/samples-of-ni-based-alloy-900.webp" width="3000" height="4000"
+                   alt="The sample archive. Every build gets bagged, labelled, and kept." loading="lazy" decoding="async"
+                   data-full="assets/gallery/samples-of-ni-based-alloy-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>The sample archive</b><span>Every build gets bagged, labelled, and kept.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="41" style="--ar:0.8495">
+          <button class="shot-btn" type="button" aria-label="Laser-cut parts — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBQCdASoUABgAPxFws1MsJaSisBgIAYAiCWcAyrQzIgKE70SmPKyVckOKSpaBbT83AAD+zgUifoYFFNoRLgse/rP8vaG6amr2liy8+F1LX7wdJruBVLhr54GjrmKJMkK+SN9QftgAAA==)">
+              <img src="assets/gallery/lasercuttedwidgets-900.webp" width="1716" height="2020"
+                   alt="Laser-cut parts. Custom fixtures, cut in-house, for a one-off experiment." loading="lazy" decoding="async"
+                   data-full="assets/gallery/lasercuttedwidgets-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Laser-cut parts</b><span>Custom fixtures, cut in-house, for a one-off experiment.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="42" style="--ar:0.7500">
+          <button class="shot-btn" type="button" aria-label="What is left of the plate — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAQBQCdASoUABsAPxF0sVAsJySisAgBgCIJYwDI1B6TO7mm73B6SWnF0LfWfxnAhssAAP7mvUwPT6BzkGm3wRqoI6fnBB/zahZdhwl+Pk+edacrQir0EBQrKUgTCYJ17o5/NV6G1vBzS5xicOiMMywOILPEoj/PoSIxpLT3W8eJsxKFMAAAAA==)">
+              <img src="assets/gallery/left-over-of-laser-cutted-ni-plate-900.webp" width="3000" height="4000"
+                   alt="What is left of the plate. The negative space of a batch of samples." loading="lazy" decoding="async"
+                   data-full="assets/gallery/left-over-of-laser-cutted-ni-plate-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>What is left of the plate</b><span>The negative space of a batch of samples.</span></figcaption>
+        </figure>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-inner contact-inner">
-      <h2 class="section-title">Contact</h2>
-      <p class="contact-sub">Feel free to reach out about research collaborations, questions, or just to say hi.</p>
-      <div class="contact-links">
-        <a href="mailto:hliang16@umd.edu" class="contact-item">
-          <span class="contact-icon">✉</span>
-          <span>hliang16@umd.edu</span>
-        </a>
-<a href="https://github.com/auroralht" class="contact-item" target="_blank" rel="noopener">
-          <span class="contact-icon">⌥</span>
-          <span>github.com/auroralht</span>
-        </a>
-      </div>
+  <section class="chapter" id="fab">
+    <div class="chapter-head">
+      <span class="chapter-n">06</span>
+      <h2>The fab floor</h2>
+      <p>Dicing, lithography, evaporation, milling. Automation only earns its keep if the sample preparation underneath it is sound.</p>
+    </div>
+        <figure class="shot shot-feature" data-i="43" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Dicing saw — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoUAA8APxFysFAsJqSisAgBgCIJZgCdMoADPjxWemvCDrdxdgAA/q7JdpsJ+CwMxh3QkDOnT1b2ettH2+d28RJrSQGAGSlp6wZVQYsCWBy6e/nfvh11D/QrL8MmqNGC5hXSmO3he/lS8cumsgaVvfTxOG4AAA==)">
+              <img src="assets/gallery/dicingsaw-900.webp" width="4000" height="3000"
+                   alt="Dicing saw. Cleanroom wafer dicing, one street at a time." loading="lazy" decoding="async"
+                   data-full="assets/gallery/dicingsaw-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Dicing saw</b><span>Cleanroom wafer dicing, one street at a time.</span></figcaption>
+        </figure>
+    <div class="grid" data-count="7">
+        <figure class="shot " data-i="44" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="A diced library — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACQAwCdASoUAA8APxFysFAsJqSisAgBgCIJZQCdACHfmXb1HuVQAP33Kl3P3psaAX7cNRmbfPkJT2apC/CxXrpsAAA=)">
+              <img src="assets/gallery/dicedsample-900.webp" width="4000" height="3000"
+                   alt="A diced library. A gradient wafer cut into individually addressable chips." loading="lazy" decoding="async"
+                   data-full="assets/gallery/dicedsample-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>A diced library</b><span>A gradient wafer cut into individually addressable chips.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="45" style="--ar:1.7778">
+          <button class="shot-btn" type="button" aria-label="Dicing in progress — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoUAAsAPxFysFAsJqSisAgBgCIJYwCdMoACwq2YJq0aAAD+ufkl86ahFppfzib6X3pAo1v4EpScCePYKWnbghKzjy+G+k5eS9G+AxG5K/oCZfSiqQHpUINcbjcKL9uhRXWpzAMhshmwAAAA)">
+              <img src="assets/gallery/wafer-dicing-900.webp" width="4032" height="2268"
+                   alt="Dicing in progress. Blade, coolant, and a very slow feed rate." loading="lazy" decoding="async"
+                   data-full="assets/gallery/wafer-dicing-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Dicing in progress</b><span>Blade, coolant, and a very slow feed rate.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="46" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Spin coater — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBACdASoUAA8APxFysFAsJqSisAgBgCIJZACdABohVAZCBJY/GnEv8ADJSTScnqyVtlNCt+e1rR2ecHCmWs/+Q2rw4uiOH9HZwRBlFd3z62S86MU0zkEwDy6LQJB0Uq52qBuscrvQXf50mjqY8AAA)">
+              <img src="assets/gallery/spincoater-900.webp" width="4000" height="3000"
+                   alt="Spin coater. Resist going down at three thousand revolutions per minute." loading="lazy" decoding="async"
+                   data-full="assets/gallery/spincoater-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Spin coater</b><span>Resist going down at three thousand revolutions per minute.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="47" style="--ar:0.5625">
+          <button class="shot-btn" type="button" aria-label="Evaporated gold contacts — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwBACdASoUACQAPxF4sFGsJ6SiqqwBgCIJQBltAfE8eLbzOIVLXkXSly/k0YNi0QAAypp5OsTJQ0PvJHQeAFrtz/h7yyYPL/NaJXg8O+eQGzM4fIUIIBBx1hKdweR7YSnwtNRoYaKi5cFu68hQYR8GS+D4XvYW0TPILpkjFbw0M0/fPy9obYbd8RQeXaD4AAA=)">
+              <img src="assets/gallery/goldpad-thermalevapolation-900.webp" width="2268" height="4032"
+                   alt="Evaporated gold contacts. Shadow-masked pads for transport measurements." loading="lazy" decoding="async"
+                   data-full="assets/gallery/goldpad-thermalevapolation-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Evaporated gold contacts</b><span>Shadow-masked pads for transport measurements.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="48" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="The resist bench — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQAwCdASoUAA8APxFwsFAsJiSisAgBgCIJZgCdMoADfwx4Sc7KYvwA/U5hQtayq+traIKla9MS5LGy8ADXgDgD/h8ErTW8nb7zf3uJgNl40Yx34bgL+SRt5Po7xyOCsdMBeLF4zm0o2inIw3Q5swtAKk8RsWGAAAA=)">
+              <img src="assets/gallery/photoresistatfab-900.webp" width="4000" height="3000"
+                   alt="The resist bench. Photolithography chemistry, waiting its turn." loading="lazy" decoding="async"
+                   data-full="assets/gallery/photoresistatfab-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>The resist bench</b><span>Photolithography chemistry, waiting its turn.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="49" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Ion mill — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJYgC06CCx+NSibN8r0AAA+UrQZGTNalPN+GE8/oLR/AcZTVbi4Z8w10Nd12v7DK9IlNjZ10G6Dl6JsKZRh13M3FlpOxbJGg2pzmchhD2ztU9GyX1X9giG9/fxI20udh2YAA==)">
+              <img src="assets/gallery/ionmillingmachine-900.webp" width="4000" height="3000"
+                   alt="Ion mill. Loading a sample for surface cleaning before deposition." loading="lazy" decoding="async"
+                   data-full="assets/gallery/ionmillingmachine-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Ion mill</b><span>Loading a sample for surface cleaning before deposition.</span></figcaption>
+        </figure>
+        <figure class="shot " data-i="50" style="--ar:1.3333">
+          <button class="shot-btn" type="button" aria-label="Milled samples on the platter — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACwAwCdASoUAA8APxFwsFAsJiSisAgBgCIJZQCdAB30CrZJ0TILAAD+n3Zml2HVLdjXDurbFkF2bAyE4sIJIH9PweVjO5oqxJNEAXzvCEOR8hQXu4f1qmf+lM79m0XTcU8GHHpNcCKW0joz6JsYfrpfDKUnQAAA)">
+              <img src="assets/gallery/ionmilledsample-900.webp" width="4000" height="3000"
+                   alt="Milled samples on the platter. Out of the mill, clean and ready." loading="lazy" decoding="async"
+                   data-full="assets/gallery/ionmilledsample-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Milled samples on the platter</b><span>Out of the mill, clean and ready.</span></figcaption>
+        </figure>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Haotong Liang · Built with ♥ and hosted on GitHub Pages</p>
-  </footer>
+  <section class="chapter" id="teaching">
+    <div class="chapter-head">
+      <span class="chapter-n">07</span>
+      <h2>Passing it on</h2>
+      <p>Autonomous experimentation should not require a synchrotron to learn. Legolas is the cheap, teachable version of the same loop.</p>
+    </div>
+        <figure class="shot shot-feature" data-i="51" style="--ar:1.7778">
+          <button class="shot-btn" type="button" aria-label="Legolas — open larger">
+            <span class="shot-frame" style="background-image:url(data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASoUAAsAPxFysFAsJqSisAgBgCIJZwAAV6tM1xkOTp72GbAAAP2TcflB8DInHvGtRQaHqMSOkQzKpBgniSCQuGo6IwBX7eDOrcxrE8EZNmARxVv9ZDRLqyAAAAA=)">
+              <img src="assets/gallery/legolas-an-eduation-platform-for-teaching-closed-loop-experimentation-900.webp" width="4032" height="2268"
+                   alt="Legolas. A low-cost closed-loop experimentation platform built to teach autonomous science." loading="lazy" decoding="async"
+                   data-full="assets/gallery/legolas-an-eduation-platform-for-teaching-closed-loop-experimentation-1800.webp" />
+            </span>
+          </button>
+          <figcaption><b>Legolas</b><span>A low-cost closed-loop experimentation platform built to teach autonomous science.</span></figcaption>
+        </figure>
 
+  </section>
+
+  <section class="resume-band">
+    <p class="eyebrow">The written version</p>
+    <h2>Everything above, in one page of text.</h2>
+    <p>Publications, methods, coursework, and the full research history — formatted to read and to print.</p>
+    <a class="btn btn-primary btn-lg" href="Resume/ResumeHaotongLiang2026.html" target="_blank" rel="noopener">Open résumé</a>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div>
+    <a href="mailto:hliang16@umd.edu">hliang16@umd.edu</a>
+    <a href="https://github.com/auroralht" target="_blank" rel="noopener">github.com/auroralht</a>
+    <a href="Resume/ResumeHaotongLiang2026.html" target="_blank" rel="noopener">Résumé</a>
+  </div>
+  <p>© 2026 Haotong Liang · College Park, Maryland</p>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <button class="lb-close" type="button" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous image">&#8249;</button>
+  <button class="lb-nav lb-next" type="button" aria-label="Next image">&#8250;</button>
+  <figure class="lb-stage">
+    <img id="lb-img" alt="" />
+    <figcaption><b id="lb-title"></b><span id="lb-note"></span></figcaption>
+  </figure>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

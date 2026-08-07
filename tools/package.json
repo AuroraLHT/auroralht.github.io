@@ -1,0 +1,11 @@
+{
+  "name": "personal-webpage-tools",
+  "private": true,
+  "description": "Generates the photo gallery and index.html",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "sharp": "^0.32.6"
+  }
+}

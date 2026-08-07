@@ -1,1 +1,8 @@
+# Full-resolution photo/video originals (~130 MB).
+# The web-sized versions in assets/ are generated from these and are committed.
+# Keep this folder backed up somewhere outside the Pages repo.
+originals/
 
+node_modules/
+*:Zone.Identifier
+.DS_Store
