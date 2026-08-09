@@ -101,7 +101,13 @@ const CHAPTERS = [
     n: '01', id: 'thin-film', title: 'The self-driving thin-film lab',
     lead: 'Pulsed-laser deposition with a computer-vision loop closed around it. The instrument decides what to grow next while the growth is still happening.',
     feature: 'PLD_machine.jpg',
-    grid: ['PLD_deposition.jpg', 'RHEEDofHighQualityEtchandAnnealedSubstrate.jpg', 'My_homemake_frontend_for_PLDandRHEED.jpg', 'PLDMachine2.jpg', 'PLDHeaterBlockThermalGradientDiagnostic.jpg', 'aligningPyroMeter.jpg', 'trouble_shooting_electron_source.jpg', 'wehnelt_cap_assembly_for_RHEED.jpg', 'PLD_target.jpg', 'SelectiveDeposotion_PLD_highthroughput_deposition_design.jpg', 'HighTemperatureFurnanceForSubstrateAnnealing.jpg', 'Sputtering.jpg'],
+    grid: ['PLD_deposition.jpg', 'RHEEDofHighQualityEtchandAnnealedSubstrate.jpg', 'My_homemake_frontend_for_PLDandRHEED.jpg', 'PLDMachine2.jpg', 'PLDHeaterBlockThermalGradientDiagnostic.jpg', 'aligningPyroMeter.jpg', 'trouble_shooting_electron_source.jpg', 'wehnelt_cap_assembly_for_RHEED.jpg', 'PLD_target.jpg', 'LaserSpotCalibrationSample.jpg', 'SelectiveDeposotion_PLD_highthroughput_deposition_design.jpg', 'HighTemperatureFurnanceForSubstrateAnnealing.jpg', 'Sputtering.jpg'],
+    video: {
+      src: 'assets/media/cathodoluminescence.mp4',
+      poster: 'assets/media/cathodoluminescence-poster.jpg',
+      title: 'Cathodoluminescence',
+      note: 'An Al₂O₃ substrate lighting up under the electron beam.',
+    },
   },
   {
     // No feature photo — the models are the subject, so the animation carries
@@ -135,12 +141,6 @@ const CHAPTERS = [
     lead: 'Diffraction, microscopy, and microprobe work — the measurements that tell you whether the thing you made is the thing you meant to make.',
     feature: 'MyFirst_pole_figure.jpg',
     grid: ['CompositionLibrary.jpg', 'FullCircle_Rigaku_Xray_machine.jpg', 'AFMforDefectIdentification.jpg', 'TruncatedCompositionalLibrary.jpg', 'In-situ_Xray_phase_mapping_on_a_SnBi_composition_gradient_library.jpg', '2DXrayImages_PowderDiffraction_highspeed_xray.png', 'WDS.jpg', 'DepositionRateEstimationWithProfilometer.jpg'],
-    video: {
-      src: 'assets/media/cathodoluminescence.mp4',
-      poster: 'assets/media/cathodoluminescence-poster.jpg',
-      title: 'Cathodoluminescence',
-      note: 'An Al₂O₃ substrate lighting up under the electron beam.',
-    },
   },
   {
     n: '04', id: 'beamtime', title: 'Beamtime',
@@ -152,7 +152,7 @@ const CHAPTERS = [
     n: '05', id: 'additive', title: 'Metal, melted',
     lead: 'Bayesian optimization applied to laser powder direct energy deposition, with in-situ X-ray imaging built to see the melt pool as it forms.',
     feature: 'As_built_LPDED_Ni_based_alloy_sample_cracked.jpg',
-    grid: ['As_built_LPDED_Ni_based_alloy_sample_wavy_top.jpg', 'SEM_crosssection_etched_Ni-based_alloy_with_crack_caused_by_thermal_stress.tif', 'In-situ_Xray_imaging_system_in_LPDED_machine.jpg', 'Physical_hacking_the_control_panel_of_a_LPDED_machine.jpg', 'In-situ_Xray_imaging_system_on_a_linear_stage.jpg', 'LaserSpotCalibrationSample.jpg', 'Polished_Ni_based_alloy.jpg', 'Polished_Ni_based_alloy_2.jpg', 'Samples_of_Ni_based_alloy.jpg', 'LaserCuttedWidgets.jpg', 'Left_over_of_laser_cutted_Ni_plate.jpg'],
+    grid: ['As_built_LPDED_Ni_based_alloy_sample_wavy_top.jpg', 'SEM_crosssection_etched_Ni-based_alloy_with_crack_caused_by_thermal_stress.tif', 'In-situ_Xray_imaging_system_in_LPDED_machine.jpg', 'Physical_hacking_the_control_panel_of_a_LPDED_machine.jpg', 'In-situ_Xray_imaging_system_on_a_linear_stage.jpg', 'Polished_Ni_based_alloy.jpg', 'Polished_Ni_based_alloy_2.jpg', 'Samples_of_Ni_based_alloy.jpg', 'LaserCuttedWidgets.jpg', 'Left_over_of_laser_cutted_Ni_plate.jpg'],
   },
   {
     n: '06', id: 'fab', title: 'The fab floor',
@@ -278,9 +278,18 @@ ${c.grid.map(f => figure(f, '')).join('\n')}${c.video ? (c.grid.length ? '\n' : 
     </div>` : ''}${c.closer ? '\n' + wideSlots(c.closer) : ''}
   </section>`;
 
+// The right-hand chapter rail. Reading order is label → tick → number, which
+// puts the numbers in a straight column against the edge of the window and
+// lets the label grow leftwards into the page without moving anything.
+const railItem = c => `    <a class="rail-item" href="#${c.id}">` +
+  `<span class="rail-label">${esc(c.title)}</span>` +
+  `<span class="rail-tick"></span>` +
+  `<span class="rail-n">${c.n}</span></a>`;
+
 function render() {
 const hero = M('PLD_deposition.jpg');
 const chapters = CHAPTERS.map(chapterHtml).join('\n');
+const rail = CHAPTERS.map(railItem).join('\n');
 
 return `<!DOCTYPE html>
 <html lang="en">
@@ -311,7 +320,12 @@ return `<!DOCTYPE html>
     <a href="https://github.com/auroralht" target="_blank" rel="noopener">GitHub</a>
     <a class="cta" href="Resume/ResumeHaotongLiang2026.html" target="_blank" rel="noopener">Résumé</a>
   </nav>
+  <span class="progress" aria-hidden="true"></span>
 </header>
+
+<nav class="rail" aria-label="Chapters">
+${rail}
+</nav>
 
 <main id="top">
 

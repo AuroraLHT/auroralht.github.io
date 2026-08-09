@@ -14,11 +14,21 @@
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --pad: clamp(1.25rem, 4vw, 4.5rem);
   --maxw: 1500px;
+  /* The gap above a chapter head. It is also the head's scroll-margin, which
+     is what makes a snap land on exactly the same pixel as a rail click —
+     any disagreement between the two shows up as a yank after the jump. */
+  --chapter-pad: clamp(4.5rem, 11vh, 8.5rem);
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* `proximity`, not `mandatory`: drifting to a stop near a chapter settles onto
+   it, but a deliberate scroll runs straight past without the page grabbing. */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
@@ -75,6 +85,24 @@ a { color: inherit; }
   border-bottom-color: var(--line);
 }
 
+/* Read-through progress, sitting on the bar's own bottom border. It stands in
+   for the rail on the screens too narrow or too short to show one, so it is
+   displayed under exactly the media conditions that hide the rail. */
+.progress {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.topbar.solid .progress { opacity: 1; }
+
 .brand {
   font-family: var(--serif);
   font-size: 1.06rem;
@@ -116,6 +144,94 @@ a { color: inherit; }
 @media (max-width: 640px) {
   .topnav a:not(.cta) { display: none; }
   .brand { font-size: 0.98rem; }
+}
+
+/* ── Chapter rail ──────────────────────────────────────────────
+   A fixed index down the right edge: seven ticks, the current one long and
+   accented. It appears only once the hero is behind you, so the opener stays
+   a photograph rather than a photograph with furniture on it. */
+
+.rail {
+  position: fixed;
+  z-index: 80;
+  top: 50%;
+  right: clamp(0.9rem, 2vw, 1.9rem);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;   /* also takes the links out of the tab order */
+  transition: opacity 0.45s ease, visibility 0.45s;
+}
+.rail.on { opacity: 1; visibility: visible; }
+
+.rail-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  padding: 0.26rem 0;
+  text-decoration: none;
+}
+
+/* The label is the only part that moves, and it moves under the pointer —
+   the ticks and numbers hold their column so the rail never reflows. */
+.rail-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+  color: var(--ink-2);
+  opacity: 0;
+  transform: translateX(7px);
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s ease;
+  text-shadow: 0 1px 10px rgba(9, 9, 11, 0.85);
+}
+
+/* The rail floats over whatever photograph is passing, and a chapter opener
+   can be nearly white. Translucent white plus a shadow reads on both grounds,
+   where a flat grey disappears into the light ones. */
+.rail-tick {
+  flex: none;
+  width: 16px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 5px rgba(9, 9, 11, 0.8);
+  transition: width 0.32s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s ease, height 0.2s ease;
+}
+
+.rail-n {
+  flex: none;
+  width: 1.3rem;      /* fixed, so the ticks line up whatever the numeral */
+  text-align: right;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.52);
+  transition: color 0.25s ease;
+  text-shadow: 0 1px 10px rgba(9, 9, 11, 0.85);
+}
+
+.rail-item:hover .rail-label,
+.rail-item:focus-visible .rail-label,
+.rail-item[aria-current] .rail-label { opacity: 1; transform: none; }
+
+.rail-item:hover .rail-label,
+.rail-item:focus-visible .rail-label,
+.rail-item:hover .rail-n,
+.rail-item:focus-visible .rail-n { color: var(--ink); }
+
+.rail-item:hover .rail-tick,
+.rail-item:focus-visible .rail-tick { width: 26px; background: rgba(255, 255, 255, 0.85); }
+
+.rail-item[aria-current] .rail-tick { width: 30px; height: 2px; background: var(--accent); }
+.rail-item[aria-current] .rail-n { color: var(--accent); }
+.rail-item[aria-current] .rail-label { color: var(--ink); }
+
+/* Below this the rail has nowhere to sit: too narrow and the labels cross the
+   image, too short and seven ticks do not fit between the edges. */
+@media (max-width: 1000px), (max-height: 560px) {
+  .rail { display: none; }
+  .progress { display: block; }
 }
 
 /* ── Buttons ───────────────────────────────────────────────── */
@@ -275,21 +391,54 @@ a { color: inherit; }
 
 /* ── Chapters ──────────────────────────────────────────────── */
 
-.chapter { padding: clamp(4.5rem, 11vh, 8.5rem) 0 0; }
+.chapter { padding: var(--chapter-pad) 0 0; }
 
 .chapter-head {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 var(--pad) clamp(2.2rem, 5vh, 3.4rem);
+  /* The snap target. Matching --chapter-pad puts the settled position exactly
+     where an #anchor jump lands, so the two never fight each other. */
+  scroll-snap-align: start;
+  scroll-margin-top: var(--chapter-pad);
 }
+
+/* Arriving at a chapter reads as a beat: number, then title, then the lead,
+   and the opening image a moment behind all three. */
+.chapter-head > * {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.chapter-head.in > * { opacity: 1; transform: none; }
+.chapter-head.in h2 { transition-delay: 0.09s; }
+.chapter-head.in p { transition-delay: 0.18s; }
+
 .chapter-n {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: max-content;
   margin-bottom: 0.9rem;
   font-family: var(--sans);
   font-size: 0.74rem;
   letter-spacing: 0.22em;
   color: var(--accent);
 }
+/* The rule draws itself out of the numeral, which is what marks the stop. */
+.chapter-n::after {
+  content: '';
+  flex: none;
+  width: 3.4rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.14s;
+}
+.chapter-head.in .chapter-n::after { transform: none; }
+
 .chapter-head h2 {
   margin: 0 0 1rem;
   font-family: var(--serif);
@@ -368,6 +517,8 @@ a { color: inherit; }
 
 /* Feature: full-bleed opener for each chapter */
 .shot-feature { margin-bottom: clamp(2rem, 5vh, 3.6rem); }
+/* Held back until the chapter head has finished landing */
+.shot-feature.in { transition-delay: 0.3s; }
 .shot-feature .shot-frame { border-radius: 0; }
 .shot-feature img {
   width: 100%;
@@ -577,8 +728,10 @@ body.lb-lock { overflow: hidden; }
 /* ── Motion / print ────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html { scroll-behavior: auto; scroll-snap-type: none; }
   .shot { opacity: 1; transform: none; transition: none; }
+  .chapter-head > * { opacity: 1; transform: none; transition: none; }
+  .chapter-n::after { transform: none; transition: none; }
   .scroll-cue span { animation: none; }
   .btn:hover, .shot-btn:hover img { transform: none; }
   * { transition-duration: 0.01ms !important; }

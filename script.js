@@ -4,13 +4,54 @@
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ── Sticky bar turns solid once the hero is behind us ─────── */
+  /* ── Sticky bar, chapter rail, read-through progress ──────────
+     One scroll listener drives all three, throttled to a frame: the bar and
+     the rail share the same "hero is behind us" threshold, and the rail's
+     active tick is whichever chapter has crossed the reading line. */
   var bar = document.querySelector('.topbar');
+  var rail = document.querySelector('.rail');
+  var progress = document.querySelector('.progress');
+  var railItems = Array.prototype.slice.call(document.querySelectorAll('.rail-item'));
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('.chapter'));
+  var active = -1;
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var y = window.scrollY;
+    var past = y > window.innerHeight * 0.6;
+    bar.classList.toggle('solid', past);
+    if (rail) rail.classList.toggle('on', past);
+
+    if (progress) {
+      var span = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = 'scaleX(' + (span > 0 ? Math.min(y / span, 1) : 0) + ')';
+    }
+
+    if (!railItems.length) return;
+    // A chapter becomes current once its top passes a line a third of the way
+    // down the window — earlier than the middle, so the tick moves while the
+    // heading is still arriving rather than after you have read it.
+    var line = y + window.innerHeight * 0.35;
+    var now = 0;
+    for (var i = 0; i < chapters.length; i++) {
+      if (chapters[i].getBoundingClientRect().top + y <= line) now = i;
+      else break;
+    }
+    if (now === active) return;
+    if (railItems[active]) railItems[active].removeAttribute('aria-current');
+    railItems[now].setAttribute('aria-current', 'true');
+    active = now;
+  }
+
   var onScroll = function () {
-    bar.classList.toggle('solid', window.scrollY > window.innerHeight * 0.6);
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
 
   /* ── Autoplaying animations are motion; honour the OS setting ─ */
   if (reduce) {
@@ -113,10 +154,12 @@
     repackTimer = setTimeout(packGrids, 180);
   });
 
-  /* ── Reveal on scroll ──────────────────────────────────────── */
-  var shots = Array.prototype.slice.call(document.querySelectorAll('.shot'));
+  /* ── Reveal on scroll ────────────────────────────────────────
+     Chapter heads ride the same observer as the images; the staggering
+     between number, title and lead is transition-delay in the CSS. */
+  var reveal = Array.prototype.slice.call(document.querySelectorAll('.shot, .chapter-head'));
   if (reduce || !('IntersectionObserver' in window)) {
-    shots.forEach(function (s) { s.classList.add('in'); });
+    reveal.forEach(function (s) { s.classList.add('in'); });
   } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -125,7 +168,7 @@
         io.unobserve(e.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-    shots.forEach(function (s) { io.observe(s); });
+    reveal.forEach(function (s) { io.observe(s); });
   }
 
   /* ── Lightbox ──────────────────────────────────────────────── */

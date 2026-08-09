@@ -64,7 +64,7 @@ committed.
 | --- | --- |
 | `index.html` | **Generated** — do not edit by hand (see below) |
 | `style.css` | All page styling |
-| `script.js` | Scroll reveal, masonry packing, lightbox, keyboard and swipe navigation |
+| `script.js` | Scroll reveal, chapter rail scroll-spy, masonry packing, lightbox, keyboard and swipe navigation |
 | `favicon.svg` | Tab icon |
 | `.nojekyll` | Tells Pages to skip Jekyll and serve files verbatim |
 | `Resume/ResumeHaotongLiang2026.html` | The résumé, self-contained (fonts embedded) |
@@ -88,6 +88,20 @@ files to force a re-encode.
 Copy lives in `tools/build.js` too — chapter titles and lead paragraphs in
 `CHAPTERS`, and everything else (hero, facts strip, résumé band, footer) in the
 `render()` template near the bottom.
+
+### The chapter rail and the snap
+
+The right-hand rail is generated from `CHAPTERS` — add a chapter and it gets a
+tick automatically, no separate list to keep in sync. It appears once the hero
+is behind you and hides below 1000 px wide or 560 px tall, where the thin
+progress line under the top bar stands in for it instead.
+
+Each `.chapter-head` is a `scroll-snap-align: start` target, so scrolling to a
+stop near a chapter settles onto it (`proximity`, not `mandatory` — a
+deliberate scroll runs straight past). Its `scroll-margin-top` and the
+chapter's own top padding are both `--chapter-pad`; if those two ever drift
+apart, clicking a rail link jumps to one position and the snap immediately
+yanks it to the other. Change them together.
 
 ### Where an image goes in a chapter
 
